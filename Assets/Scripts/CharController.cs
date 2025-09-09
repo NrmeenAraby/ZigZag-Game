@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharController : MonoBehaviour {
+	public GameManager gameManager;
 
 	public Transform rayStart;
 	private Animator anim;
@@ -13,11 +14,20 @@ public class CharController : MonoBehaviour {
 	void Start() {
 		rb = GetComponent<Rigidbody>();
 		anim= GetComponent<Animator>();
+		gameManager = FindObjectOfType<GameManager>();
 	}
 
 	void FixedUpdate()
 	{
-		rb.transform.position = transform.position + transform.forward * 2 * Time.deltaTime;
+		if (!gameManager.gameStarted)
+		{
+			return;
+		}
+		else
+		{
+			anim.SetTrigger("GameStarted");
+		}
+			rb.transform.position = transform.position + transform.forward * 2 * Time.deltaTime;
 	}
 	// Update is called once per frame
 	void Update() {
