@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class CharController : MonoBehaviour {
 
+	public Transform rayStart;
+	private Animator anim;
+
 	private Rigidbody rb;
 	private bool walkRight = true;
 	// Use this for initialization
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+		anim= GetComponent<Animator>();
 	}
 
 	void FixedUpdate()
@@ -20,6 +24,10 @@ public class CharController : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Switch();
+		}
+		RaycastHit hit;
+		if (!Physics.Raycast(rayStart.position, -transform.up, out hit, Mathf.Infinity)) {
+			anim.SetTrigger("IsFalling");
 		}
 	}
     void Switch(){
