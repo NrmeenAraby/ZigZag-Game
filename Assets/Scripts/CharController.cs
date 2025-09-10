@@ -39,9 +39,17 @@ public class CharController : MonoBehaviour {
 		if (!Physics.Raycast(rayStart.position, -transform.up, out hit, Mathf.Infinity)) {
 			anim.SetTrigger("IsFalling");
 		}
+		if (transform.position.y < -2)
+		{
+			gameManager.EndGame();
+		}
 	}
     void Switch(){
-		walkRight = !walkRight;
+        if (!gameManager.gameStarted)
+        {
+			return;
+        }
+        walkRight = !walkRight;
 		if (walkRight)
 		{
 			transform.rotation = Quaternion.Euler(0f, 45f, 0f);
