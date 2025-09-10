@@ -8,7 +8,14 @@ public class GameManager : MonoBehaviour {
 	public bool gameStarted;
 	int score=0;
 	public Text scoreText;
-	public void StartGame()
+	public Text highScoreText;
+
+	public void Awake()
+	{
+        highScoreText.text = "Best: " + GetHighScore().ToString();
+
+    }
+    public void StartGame()
 	{
 		gameStarted = true;
 	}
@@ -27,5 +34,15 @@ public class GameManager : MonoBehaviour {
 	{
 		score++;
 		scoreText.text=score.ToString();
+		if (score > GetHighScore())
+		{
+			PlayerPrefs.SetInt("HighScore", score);
+			highScoreText.text="Best: "+score.ToString();
+		}
+	}
+	public int GetHighScore()
+	{
+		int h = PlayerPrefs.GetInt("HighScore");
+		return h;
 	}
 }
