@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public bool gameStarted;
-
+	int score=0;
+	public Text scoreText;
 	public void StartGame()
 	{
 		gameStarted = true;
@@ -20,5 +22,10 @@ public class GameManager : MonoBehaviour {
 	public void EndGame()
 	{
 		SceneManager.LoadScene(0);
+	}
+	public void IncreaseScore()
+	{
+		score++;
+		scoreText.text=score.ToString();
 	}
 }

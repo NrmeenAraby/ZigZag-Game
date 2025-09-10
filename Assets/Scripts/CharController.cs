@@ -58,5 +58,13 @@ public class CharController : MonoBehaviour {
 		{
 			transform.rotation = Quaternion.Euler(0, -45, 0);
 		}
-	}	
+	}
+
+	public void OnTriggerEnter(Collider other) {
+		if (other.tag == "Crystal")
+		{
+			Destroy(other.gameObject);
+			gameManager.IncreaseScore();
+		}
+	}
 }
