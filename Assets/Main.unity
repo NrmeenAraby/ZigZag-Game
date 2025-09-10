@@ -1542,6 +1542,12 @@ Prefab:
       propertyPath: rayStart
       value: 
       objectReference: {fileID: 1142668140}
+    - target: {fileID: 114217954745141656, guid: fe7c4b04685444448a7b38080857dd94,
+        type: 2}
+      propertyPath: crystalEffect
+      value: 
+      objectReference: {fileID: 1610144971138444, guid: 287a1514209b224449f96dfa0e2c4066,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe7c4b04685444448a7b38080857dd94, type: 2}
   m_IsPrefabParent: 0

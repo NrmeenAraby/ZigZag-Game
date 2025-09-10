@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharController : MonoBehaviour {
+
+	public GameObject crystalEffect; 
+
 	public GameManager gameManager;
 
 	public Transform rayStart;
@@ -63,8 +66,13 @@ public class CharController : MonoBehaviour {
 	public void OnTriggerEnter(Collider other) {
 		if (other.tag == "Crystal")
 		{
-			Destroy(other.gameObject);
 			gameManager.IncreaseScore();
-		}
-	}
+
+			GameObject cE = Instantiate(crystalEffect,rayStart.position,Quaternion.identity);
+			Destroy(cE,2);
+            Destroy(other.gameObject);
+
+
+        }
+    }
 }
