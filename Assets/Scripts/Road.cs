@@ -6,7 +6,7 @@ public class Road : MonoBehaviour {
 
     public GameObject roadPrefab;
     public Vector3 lastPosition;
-    public float offset=0.712f;
+    public float offset=0.705f;
 
     public int roadCount = 0;   
     public void StartBuilding()

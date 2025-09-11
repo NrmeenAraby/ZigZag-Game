@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	public Text scoreText;
 	public Text highScoreText;
 
+
 	public void Awake()
 	{
         highScoreText.text = "Best: " + GetHighScore().ToString();

@@ -42,6 +42,10 @@ public class CharController : MonoBehaviour {
 		if (!Physics.Raycast(rayStart.position, -transform.up, out hit, Mathf.Infinity)) {
 			anim.SetTrigger("IsFalling");
 		}
+		else
+		{
+			anim.SetTrigger("notFallingAnymore");
+		}
 		if (transform.position.y < -2)
 		{
 			gameManager.EndGame();
