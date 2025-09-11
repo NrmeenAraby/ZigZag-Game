@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public void StartGame()
 	{
 		gameStarted = true;
+		FindObjectOfType<Road>().StartBuilding();
 	}
 	
 	// Update is called once per frame
